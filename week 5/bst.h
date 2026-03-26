@@ -69,3 +69,5 @@ void print_in_order_bst(BST *self);
  */
 void destroy_bst(BST *self);
 void bst_adhoc_test();
+void print_pre_order_bst(BST* self);
+void print_post_order_bst(BST* self);

@@ -113,6 +113,43 @@ void print_in_order_bst_node(BSTNodePtr self) {
 void print_in_order_bst(BST* self) {
 	print_in_order_bst_node(self->root);
 }
+// recursive function to print pre-order
+void print_pre_order_bst_node(BSTNodePtr self) {
+	if (self == NULL) {
+		printf("_");
+	}
+	else {
+		printf("(");
+		printf(" %d ", self->data_item);
+		print_pre_order_bst_node(self->left);
+		print_pre_order_bst_node(self->right);
+		printf(")");
+	}
+}
+
+// print pre-order
+void print_pre_order_bst(BST* self) {
+	print_pre_order_bst_node(self->root);
+}
+
+// recursive function to print post-order
+void print_post_order_bst_node(BSTNodePtr self) {
+	if (self == NULL) {
+		printf("_");
+	}
+	else {
+		printf("(");
+		print_post_order_bst_node(self->left);
+		print_post_order_bst_node(self->right);
+		printf(" %d ", self->data_item);
+		printf(")");
+	}
+}
+
+// print post-order
+void print_post_order_bst(BST* self) {
+	print_post_order_bst_node(self->root);
+}
 
 // recursive function to detroy all node
 void destroy_bst_node(BSTNodePtr self) {
@@ -146,6 +183,17 @@ void bst_adhoc_test() {
 		}
 	}
 
+	printf("In-order:\n");
 	print_in_order_bst(&tree);
 	printf("\n");
+
+	printf("Pre-order:\n");
+	print_pre_order_bst(&tree);
+	printf("\n");
+
+	printf("Post-order:\n");
+	print_post_order_bst(&tree);
+	printf("\n");
+
+	destroy_bst(&tree);
 }
