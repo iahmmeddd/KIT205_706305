@@ -1,6 +1,6 @@
 #include "list.h"
 
 int main() {
-    list_adhoc_test();
+    list_test();
     return 0;
 }
