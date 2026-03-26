@@ -134,6 +134,7 @@ void bst_adhoc_test() {
 	BST tree = new_bst();
 	int quit = 0;
 	int data;
+
 	while (quit == 0) {
 		printf("Enter some data: ");
 		scanf("%d", &data);
@@ -144,6 +145,7 @@ void bst_adhoc_test() {
 			quit = 1;
 		}
 	}
+
 	print_in_order_bst(&tree);
 	printf("\n");
 }
