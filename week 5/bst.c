@@ -133,42 +133,17 @@ void destroy_bst(BST* self) {
 void bst_adhoc_test() {
 	BST tree = new_bst();
 	int quit = 0;
-	int option;
-	int value;
-
-	printf("=== Binary Search Tree Menu ===\n");
-
-	while (!quit) {
-		printf("\n0 = quit\n");
-		printf("1 = insert\n");
-		printf("2 = delete\n");
-		printf("3 = print\n");
-		printf("Choose option: ");
-
-		scanf("%d", &option);
-
-		if (option == 0) {
-			quit = 1;
-		}
-		else if (option == 1) {
-			printf("Enter value to insert: ");
-			scanf("%d", &value);
-			insert_bst(&tree, value);
-		}
-		else if (option == 2) {
-			printf("Enter value to delete: ");
-			scanf("%d", &value);
-			delete_bst(&tree, value);
-		}
-		else if (option == 3) {
-			printf("BST: ");
-			print_in_order_bst(&tree);
-			printf("\n");
+	int data;
+	while (quit == 0) {
+		printf("Enter some data: ");
+		scanf("%d", &data);
+		if (data != 0) {
+			insert_bst(&tree, data);
 		}
 		else {
-			printf("Invalid option!\n");
+			quit = 1;
 		}
 	}
-
-	destroy_bst(&tree);
+	print_in_order_bst(&tree);
+	printf("\n");
 }
