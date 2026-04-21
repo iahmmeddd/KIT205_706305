@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include "hashtable_wk5.h"
 
 HashTable create_hashtable(int n) {
@@ -42,7 +42,6 @@ void hash_remove(HashTable* self, String key) {
 	// TODO
 	int index = hash(key, self->size);
 	delete_from_list(&(self->table[index]), key);
-
 }
 
 void hash_print(HashTable* self) {
@@ -68,14 +67,14 @@ void hash_adhoc_test() {
 	char buffer[100];
 
 	while (command) {
-		scanf_s("%d", &command);
+		scanf("%d", &command);
 		switch (command) {
 		case 1:
-			scanf_s("%s", buffer, 100);
+			scanf("%s", buffer);
 			hash_insert(&table, buffer);
 			break;
 		case 2: // TODO: remove
-			scanf_s("%s", buffer, 100);
+			scanf("%s", buffer);
 			hash_remove(&table, buffer);
 			break;
 		case 3: // TODO: print
