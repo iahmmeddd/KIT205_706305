@@ -136,9 +136,6 @@
   <ItemGroup>
     <Text Include="graph.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="musae_git_edges.csv" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

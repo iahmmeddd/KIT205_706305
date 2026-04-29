@@ -30,9 +30,4 @@
   <ItemGroup>
     <Text Include="graph.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="musae_git_edges.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>
