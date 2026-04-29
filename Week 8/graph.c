@@ -6,6 +6,7 @@
 void add_edge(Graph* self, int from, int to, int w) {
 	// make a new node
 	EdgeNodePtr newNode = malloc(sizeof(struct edgeNode));
+	if (newNode == NULL) return;
 
 	// put edge info inside node
 	newNode->edge.to_vertex = to;

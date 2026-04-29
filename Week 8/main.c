@@ -7,7 +7,7 @@ int main() {
 	Graph G;   // our graph variable
 
 	// open the file
-	FILE* file = fopen("graph.txt", "r");
+	FILE* file = fopen("musae_git_edges.csv", "r");
 
 	// check if file opened or not
 	if (file == NULL) {
@@ -26,12 +26,17 @@ int main() {
 		G.edges[v].head = NULL;
 	}
 
-	int from, to, weight;
+	int from, to;
+	int edgeCount = 0;
 
-	// read all edges from file
-	while (fscanf(file, "%d,%d,%d", &from, &to, &weight) == 3) {
-		add_edge(&G, from, to, weight);   // add edge into graph
+	while (!feof(file)) {
+		if (fscanf(file, "%d,%d", &from, &to) == 2) {
+			add_edge(&G, from, to, 0);
+			edgeCount++;
+		}
 	}
+
+	printf("Edges loaded = %d\n", edgeCount);
 
 	// close the file
 	fclose(file);
@@ -50,19 +55,18 @@ int main() {
 
 		// go through one linked list
 		while (current != NULL) {
-			// increase indegree of destination vertex
 			indegree[current->edge.to_vertex]++;
 			current = current->next;
 		}
 	}
 
-	// print result
+	// print ALL results
 	printf("In-degrees:\n");
 	for (int i = 0; i < G.V; i++) {
 		printf("%d: %d\n", i, indegree[i]);
 	}
 
-	// free extra memory
+	// free memory
 	free(indegree);
 	free_graph(&G);
 
